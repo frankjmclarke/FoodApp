@@ -40,18 +40,17 @@ class MainActivity : AppCompatActivity() {
             val food = this.listOfFood[p0]
             val inflator = context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             val foodView= inflator.inflate(R.layout.food_ticket,null)
-            foodView.ivFoodImage.setImageResource(food.image!!)
+            foodView.ivFoodImage.setImageResource(food.image)
             foodView.ivFoodImage.setOnClickListener {
 
                 val intent = Intent(context,FoodDetails::class.java)
-                intent.putExtra("name",food.name!!)
-                intent.putExtra("des",food.des!!)
-                intent.putExtra("image",food.image!!)
+                intent.putExtra("name",food.name)
+                intent.putExtra("des", food.des)
+                intent.putExtra("image", food.image)
                 context!!.startActivity(intent)
             }
-            foodView.tvName.text =  food.name!!
+            foodView.tvName.text = food.name
             return  foodView
-
         }
 
         override fun getItem(p0: Int): Any {
